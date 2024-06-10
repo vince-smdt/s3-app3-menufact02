@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class IngredientInventaire {
     static private IngredientInventaire instance;
-    private ArrayList<EntreeIngredientInventaire> entrees;
+    private final ArrayList<EntreeIngredientInventaire> entrees;
     private int entreeCourante;
 
     private IngredientInventaire() {
@@ -23,7 +23,7 @@ public class IngredientInventaire {
     }
 
     public void entreeSuivante() throws IngredientInventaireException {
-        if (this.entreeCourante >= this.entrees.size())
+        if (this.entreeCourante >= this.entrees.size() - 1)
             throw new IngredientInventaireException("Depassement du nombre maximal d'entrees.");
 
         this.entreeCourante++;
@@ -62,5 +62,14 @@ public class IngredientInventaire {
 
         // Ingredient doesn't already exist, adding new entry
         this.entrees.add(nouvelleEntree);
+    }
+
+    public void viderInventaire() {
+        this.entrees.clear();
+        this.entreeCourante = 0;
+    }
+
+    public int getNombreEntrees() {
+        return this.entrees.size();
     }
 }

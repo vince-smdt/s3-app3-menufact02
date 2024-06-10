@@ -1,7 +1,6 @@
 package facture;
 
 import Client.Client;
-import menufact.facture.exceptions.FactureException;
 import plats.PlatChoisi;
 
 import java.util.ArrayList;
