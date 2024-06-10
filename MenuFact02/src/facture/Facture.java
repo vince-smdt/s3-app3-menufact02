@@ -27,74 +27,39 @@ public class Facture {
 
     /**
      *
+     * @param description la description de la Facture
+     */
+    public Facture(String description) {
+        date = getDate();
+        etat = FactureEtat.OUVERTE;
+        courant = -1;
+        this.description = description;
+    }
+
+    /**
+     *
      * @param client le client de la facture
      */
-    public void associerClient (Client client)
+    public void setClient (Client client)
     {
         this.client = client;
     }
 
-    /**
-     * Calcul du sous total de la facture
-     * @return le sous total
-     */
-    public double sousTotal()
+    public Client getClient ()
     {
-        double soustotal=0;
-         for (PlatChoisi p : platchoisi)
-             soustotal += p.getQuantite() * p.getPlat().getPrix();
-        return soustotal;
+        return this.client;
     }
 
-    /**
-     *
-     * @return le total de la facture
-     */
-    public double total(){
-        return sousTotal()+tps()+tvq();
+    public ArrayList<PlatChoisi> getPlatschoisi(){
+        return platchoisi;
     }
 
-    /**
-     *
-     * @return la valeur de la TPS
-     */
-    private double tps(){
-        return TPS*sousTotal();
+    public double getTPS(){
+        return TPS;
     }
 
-    /**
-     *
-     * @return la valeur de la TVQ
-     */
-    private  double tvq(){
-        return TVQ*(TPS+1)*sousTotal();
-    }
-
-    /**
-     * Permet de chager l'état de la facture à PAYEE
-     */
-    public void payer()
-    {
-       etat = FactureEtat.PAYEE;
-    }
-    /**
-     * Permet de chager l'état de la facture à FERMEE
-     */
-    public void fermer()
-    {
-       etat = FactureEtat.FERMEE;
-    }
-
-    /**
-     * Permet de changer l'état de la facture à OUVERTE
-     * @throws FactureException en cas que la facture soit PAYEE
-     */
-    public void ouvrir() throws FactureException
-    {
-        if (etat == FactureEtat.PAYEE)
-            throw new FactureException("La facture ne peut pas être reouverte.");
-        else
-            etat = FactureEtat.OUVERTE;
+    public double getTVQ(){
+        return TVQ;
     }
 
     /**
@@ -108,26 +73,45 @@ public class Facture {
 
     /**
      *
-     * @param description la description de la Facture
+     * @return l'état de la facture
      */
-    public Facture(String description) {
-        date = new Date();
-        etat = FactureEtat.OUVERTE;
-        courant = -1;
-        this.description = description;
+    public void setEtat(FactureEtat nEtat)
+    {
+        etat = nEtat;
+    }
+
+    public Date getDate()
+    {
+        return date;
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public void platChoisiSuivant(){
+        if(courant < platchoisi.size() - 1)
+            courant++;
+    }
+
+    public void platChoisiPrecedant(){
+        if(courant > 0)
+            courant--;
+    }
+
+    public PlatChoisi platChoisiCourant(){
+        return platchoisi.get(courant);
     }
 
     /**
      *
      * @param p un plat choisi
-     * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(PlatChoisi p) throws FactureException
+    public void ajouterPlat(PlatChoisi p)
     {
-        if (etat == FactureEtat.OUVERTE)
-            platchoisi.add(p);
-        else
-            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+        platchoisi.add(p);
+        courant = platchoisi.size() - 1;
     }
 
     /**
@@ -146,37 +130,5 @@ public class Facture {
                 ", TPS=" + TPS +
                 ", TVQ=" + TVQ +
                 '}';
-    }
-
-    /**
-     *
-     * @return une chaîne de caractères avec la facture à imprimer
-     */
-    public String genererFacture()
-    {
-        String lesPlats = new String();
-        String factureGenere = new String();
-
-        int i =1;
-
-
-        factureGenere =   "Facture generee.\n" +
-                          "Date:" + date + "\n" +
-                          "Description: " + description + "\n" +
-                          "Client:" + client.getNom() + "\n" +
-                          "Les plats commandes:" + "\n" + lesPlats;
-
-        factureGenere += "Seq   Plat         Prix   Quantite\n";
-        for (PlatChoisi plat : platchoisi)
-        {
-            factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrix() +  "      " + plat.getQuantite() + "\n";
-            i++;
-        }
-
-        factureGenere += "          TPS:               " + tps() + "\n";
-        factureGenere += "          TVQ:               " + tvq() + "\n";
-        factureGenere += "          Le total est de:   " + total() + "\n";
-
-        return factureGenere;
     }
 }

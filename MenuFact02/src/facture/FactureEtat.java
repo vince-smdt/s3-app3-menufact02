@@ -1,4 +1,4 @@
-package menufact.facture;
+package facture;
 
 public enum FactureEtat {
     OUVERTE, FERMEE, PAYEE
