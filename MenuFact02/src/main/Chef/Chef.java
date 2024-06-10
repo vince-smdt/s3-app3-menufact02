@@ -9,7 +9,7 @@ public class Chef {
     ArrayList<PlatChoisi> commandes;
 
     public Chef() {
-
+        commandes = new ArrayList<>();
     }
 
     public void changerEtatPlat(int iPlat, int etat) throws ChefException {
@@ -28,4 +28,6 @@ public class Chef {
         commandes.add(plat);
         System.out.println("Plat a preparer: " + plat.toString());
     }
+
+    public ArrayList<PlatChoisi> getList(){ return commandes; }
 }
