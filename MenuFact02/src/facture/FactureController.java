@@ -2,6 +2,7 @@ package facture;
 
 import Chef.Chef;
 import Client.Client;
+import facture.exceptions.FactureException;
 import plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -78,9 +79,9 @@ public class FactureController {
 
     /**
      * Permet de changer l'état de la facture à OUVERTE
-     * @throws menufact.facture.exceptions.FactureException en cas que la facture soit PAYEE
+     * @throws FactureException en cas que la facture soit PAYEE
      */
-    public void ouvrir() throws menufact.facture.exceptions.FactureException
+    public void ouvrir() throws FactureException
     {
         model.getEtat().ouvrir();
     }
@@ -103,16 +104,16 @@ public class FactureController {
     /**
      *
      * @param p un plat choisi
-     * @throws menufact.facture.exceptions.FactureException Seulement si la facture est OUVERTE
+     * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(PlatChoisi p) throws menufact.facture.exceptions.FactureException
+    public void ajoutePlat(PlatChoisi p) throws FactureException
     {
         if (model.getEtat().ajouterPlat()){
             notify(p);
             model.ajouterPlat(p);
         }
         else
-            throw new menufact.facture.exceptions.FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
     }
 
     /**

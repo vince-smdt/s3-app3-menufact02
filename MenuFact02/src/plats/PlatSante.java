@@ -1,5 +1,7 @@
 package plats;
 
+import plats.PlatAuMenu;
+
 public class PlatSante extends PlatAuMenu {
     private double kcal;
     private double chol;
