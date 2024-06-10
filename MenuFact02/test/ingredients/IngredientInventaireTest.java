@@ -1,6 +1,7 @@
 package ingredients;
 
-import ingredients.exceptions.IngredientInventaireException;
+import main.ingredients.*;
+import main.ingredients.exceptions.IngredientInventaireException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
