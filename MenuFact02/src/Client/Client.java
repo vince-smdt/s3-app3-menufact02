@@ -1,4 +1,4 @@
-package menufact;
+package Client;
 
 public class Client {
     private int idClient;
@@ -37,7 +37,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "menufact.Client{" +
+        return "menufact.Client.Client{" +
                 "idClient=" + idClient +
                 ", nom='" + nom + '\'' +
                 ", numeroCarteCredit='" + numeroCarteCredit + '\'' +
@@ -46,5 +46,5 @@ public class Client {
 }
 /*
 @startuml
-class menufact.Client{}
+class menufact.Client.Client{}
 * */

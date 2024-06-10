@@ -1,9 +1,11 @@
+import Client.Client;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
-import menufact.facture.Facture;
+import facture.Facture;
 import menufact.plats.PlatAuMenu;
 import plats.PlatChoisi;
 import menufact.plats.PlatSante;
+import Menu.Menu;
 
 public class TestMenuFact02 {
 

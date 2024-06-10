@@ -1,8 +1,7 @@
-package menufact;
-
-import menufact.facture.Facture;
+import Menu.Menu;
+import facture.Facture;
 import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
+import plats.PlatChoisi;
 import menufact.plats.PlatSante;
 
 public class TestMenuFact01 {
