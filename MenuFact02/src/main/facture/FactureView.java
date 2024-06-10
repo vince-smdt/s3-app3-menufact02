@@ -6,6 +6,6 @@ public class FactureView {
     }
 
     public String viewEtat(String etat){
-        return "facture" + etat;
+        return etat;
     }
 }
