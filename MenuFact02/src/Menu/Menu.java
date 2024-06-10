@@ -1,7 +1,7 @@
 package Menu;
 
 import menufact.exceptions.MenuException;
-import menufact.plats.PlatAuMenu;
+import plats.PlatAuMenu;
 
 import java.util.ArrayList;
 
@@ -44,7 +44,6 @@ public class Menu {
         else
             courant--;
     }
-
 
     @Override
     public String toString() {
