@@ -1,9 +1,8 @@
-import Menu.Menu;
-import facture.Facture;
-import facture.FactureController;
-import plats.PlatAuMenu;
-import plats.PlatChoisi;
-import plats.PlatSante;
+import main.Menu.Menu;
+import main.facture.FactureController;
+import main.plats.PlatAuMenu;
+import main.plats.PlatChoisi;
+import main.plats.PlatSante;
 
 public class TestMenuFact01 {
     public static void main(String[] args) {

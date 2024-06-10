@@ -1,12 +1,11 @@
-import Client.Client;
-import facture.FactureController;
-import facture.exceptions.FactureException;
-import exceptions.MenuException;
-import facture.Facture;
-import plats.PlatAuMenu;
-import plats.PlatChoisi;
-import plats.PlatSante;
-import Menu.Menu;
+import main.Client.Client;
+import main.facture.FactureController;
+import main.facture.exceptions.FactureException;
+import main.exceptions.MenuException;
+import main.plats.PlatAuMenu;
+import main.plats.PlatChoisi;
+import main.plats.PlatSante;
+import main.Menu.Menu;
 
 public class TestMenuFact02 {
 
@@ -254,7 +253,11 @@ public class TestMenuFact02 {
 
     private void test8_AjouterClientFacture(FactureController f1,Client c1) {
         System.out.println("===test8_AjouterClientFacture");
-        f1.associerClient(c1);
+        try {
+            f1.associerClient(c1);
+        } catch (FactureException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println(f1);
     }
     private void test8_AjouterPlatsFacture(FactureController f1, Menu m1, int pos) throws MenuException,FactureException
