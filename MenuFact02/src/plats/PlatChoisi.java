@@ -1,4 +1,4 @@
-package menufact.plats;
+package plats;
 
 import menufact.plats.PlatAuMenu;
 

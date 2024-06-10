@@ -1,10 +1,8 @@
-package menufact;
-
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import menufact.facture.Facture;
 import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
+import plats.PlatChoisi;
 import menufact.plats.PlatSante;
 
 public class TestMenuFact02 {

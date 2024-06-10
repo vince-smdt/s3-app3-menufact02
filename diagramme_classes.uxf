@@ -36,7 +36,7 @@ EtatFacture
 +fermer(): void
 +payer(): void
 +toString(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1068</x><y>600</y><w>156</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;240;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1068</x><y>600</y><w>18</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>930</x><y>600</y><w>156</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>240;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1068</x><y>492</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1170</x><y>558</y><w>84</w><h>42</h></coordinates><panel_attributes>State (Etat facture)
-bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1032</x><y>282</y><w>126</w><h>54</h></coordinates><panel_attributes>Chef
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1032</x><y>282</y><w>126</w><h>54</h></coordinates><panel_attributes>Commandes.Chef
 --
 --</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1212</x><y>300</y><w>150</w><h>126</h></coordinates><panel_attributes>Client
 --
