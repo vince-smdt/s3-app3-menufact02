@@ -1,4 +1,4 @@
-package menufact.plats;
+package plats;
 
 public class PlatAuMenu {
     private int code;
