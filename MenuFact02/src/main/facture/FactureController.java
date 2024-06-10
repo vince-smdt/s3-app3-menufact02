@@ -7,29 +7,70 @@ import main.plats.PlatChoisi;
 
 import java.util.ArrayList;
 
+/**
+ * <p>Controleur pour le modèle facture</p>
+ */
 public class FactureController {
     private Facture model;
     private FactureView view;
     ArrayList<Chef> listeners;
 
+    /**
+     *
+     * @param desc description de la facture
+     */
     public FactureController(String desc) {
         model = new Facture(desc);
         view = new FactureView();
         this.listeners = new ArrayList<>();
     }
 
+    /**
+     * <p>Méthode de l'observateur pour recevoir une notification</p>
+     * @param listener chef qui veut ce connecter a la facture
+     */
     public void subscribe(Chef listener) {
         this.listeners.add(listener);
     }
 
+    /**
+     * <p>Méthode pour ne plus recevoir de notification</p>
+     * @param listener chef qui veux ce déconnecter de la facture
+     */
     public void unsubscribe(Chef listener) {
         this.listeners.remove(listener);
     }
 
+    /**
+     * <p>Méthode pour notifier toutes les chefs connecté</p>
+     * @param plat plat ajouté à la facture
+     */
     public void notify(PlatChoisi plat) {
         for (Chef listener : this.listeners) {
             listener.update(plat);
         }
+    }
+
+    /**
+     * Itérateur pour changer au plat suivant
+     */
+    public void platChoisiSuivant(){
+        model.platChoisiSuivant();
+    }
+
+    /**
+     * Itérateur pour changer au plat précédant
+     */
+    public void platChoisiPrecedant(){
+        model.platChoisiPrecedant();
+    }
+
+    /**
+     *
+     * @return la plat que l'itérateur pointe
+     */
+    public PlatChoisi platChoisiCourant(){
+        return model.platChoisiCourant();
     }
 
     /**
@@ -151,6 +192,10 @@ public class FactureController {
         return factureGenere;
     }
 
+    /**
+     * <p>Appel la vue pour afficher l'état de la facture</p>
+     * @return la vue qui affiche l'état de la facture
+     */
     public String getEtat(){
         String s;
 
@@ -159,6 +204,10 @@ public class FactureController {
         return view.viewEtat(s);
     }
 
+    /**
+     *
+     * @return la facture en suite de charactère
+     */
     @Override
     public String toString() {
         return model.toString();

@@ -44,19 +44,35 @@ public class Facture {
         this.client = client;
     }
 
+    /**
+     *
+     * @return le client de la facture
+     */
     public Client getClient ()
     {
         return this.client;
     }
 
+    /**
+     *
+     * @return les plats choisis
+     */
     public ArrayList<PlatChoisi> getPlatschoisi(){
         return platchoisi;
     }
 
+    /**
+     *
+     * @return la valeur du TPS
+     */
     public double getTPS(){
         return TPS;
     }
 
+    /**
+     *
+     * @return la valeur du TVQ
+     */
     public double getTVQ(){
         return TVQ;
     }
@@ -79,26 +95,44 @@ public class Facture {
         this.state = state;
     }
 
+    /**
+     *
+     * @return la date de la facture
+     */
     public Date getDate()
     {
         return date;
     }
 
+    /**
+     *
+     * @return retourne la description de la facture
+     */
     public String getDescription()
     {
         return description;
     }
 
+    /**
+     * Itérateur pour changer au plat suivant
+     */
     public void platChoisiSuivant(){
         if(courant < platchoisi.size() - 1)
             courant++;
     }
 
+    /**
+     * Itérateur pour changer au plat précédant
+     */
     public void platChoisiPrecedant(){
         if(courant > 0)
             courant--;
     }
 
+    /**
+     *
+     * @return la plat que l'itérateur pointe
+     */
     public PlatChoisi platChoisiCourant(){
         return platchoisi.get(courant);
     }
