@@ -42,6 +42,8 @@ public class FactureController {
     }
     public Client getClient() {return model.getClient();}
 
+    public ArrayList<PlatChoisi> getListePlat() { return model.getPlatschoisi(); }
+
     /**
      * Calcul du sous total de la facture
      * @return le sous total
@@ -90,14 +92,14 @@ public class FactureController {
     /**
      * Permet de chager l'état de la facture à PAYEE
      */
-    public void payer()
+    public void payer() throws FactureException
     {
         model.getEtat().payer();
     }
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
-    public void fermer()
+    public void fermer() throws FactureException
     {
         model.getEtat().fermer();
     }

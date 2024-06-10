@@ -29,7 +29,7 @@ public class Facture {
      * @param description la description de la Facture
      */
     public Facture(String description) {
-        date = getDate();
+        date = new Date();
         state = new EtatOuvert(this);
         courant = -1;
         this.description = description;
