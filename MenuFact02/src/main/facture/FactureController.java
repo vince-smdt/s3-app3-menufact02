@@ -158,4 +158,9 @@ public class FactureController {
 
         return view.viewEtat(s);
     }
+
+    @Override
+    public String toString() {
+        return model.toString();
+    }
 }
