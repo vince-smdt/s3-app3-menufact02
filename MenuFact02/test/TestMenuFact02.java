@@ -1,7 +1,7 @@
 import Client.Client;
 import facture.FactureController;
-import menufact.facture.exceptions.FactureException;
-import menufact.exceptions.MenuException;
+import facture.exceptions.FactureException;
+import exceptions.MenuException;
 import facture.Facture;
 import plats.PlatAuMenu;
 import plats.PlatChoisi;

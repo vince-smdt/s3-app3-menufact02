@@ -1,5 +1,6 @@
 package Chef;
 
+import Chef.exceptions.ChefException;
 import plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class Chef {
 
     }
 
-    public void changerEtatPlat(int iPlat, int etat){
+    public void changerEtatPlat(int iPlat, int etat) throws ChefException {
         ArrayList<PlatChoisi> nouveau = new ArrayList<>();
         for (int i = 0; i < commandes.size(); i++){
             PlatChoisi p = commandes.get(i);

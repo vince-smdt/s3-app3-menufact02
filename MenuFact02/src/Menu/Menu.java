@@ -1,6 +1,6 @@
 package Menu;
 
-import menufact.exceptions.MenuException;
+import exceptions.MenuException;
 import plats.PlatAuMenu;
 
 import java.util.ArrayList;
