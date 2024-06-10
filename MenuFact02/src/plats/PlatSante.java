@@ -1,6 +1,4 @@
-package menufact.plats;
-
-import menufact.plats.PlatAuMenu;
+package plats;
 
 public class PlatSante extends PlatAuMenu {
     private double kcal;
