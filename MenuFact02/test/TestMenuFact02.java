@@ -3,9 +3,9 @@ import facture.FactureController;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
 import facture.Facture;
-import menufact.plats.PlatAuMenu;
+import plats.PlatAuMenu;
 import plats.PlatChoisi;
-import menufact.plats.PlatSante;
+import plats.PlatSante;
 import Menu.Menu;
 
 public class TestMenuFact02 {
