@@ -19,6 +19,10 @@ public class EntreeIngredientInventaire {
         return this.quantite;
     }
 
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
     public void utiliser(int quantite) throws EntreeIngredientInventaireException {
         if (quantite > this.quantite)
             throw new EntreeIngredientInventaireException("Quantite insuffisante d'ingredient a utiliser.");

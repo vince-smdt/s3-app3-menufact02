@@ -12,9 +12,6 @@ public class PlatSante extends PlatAuMenu {
         this.gras = gras;
     }
 
-    public PlatSante() {
-    }
-
     @Override
     public String toString() {
         return "menufact.plats.PlatSante{" +

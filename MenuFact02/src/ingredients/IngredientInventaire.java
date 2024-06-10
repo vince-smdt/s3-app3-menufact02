@@ -3,6 +3,7 @@ package ingredients;
 import ingredients.exceptions.IngredientInventaireException;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class IngredientInventaire {
     static private IngredientInventaire instance;
@@ -37,5 +38,29 @@ public class IngredientInventaire {
 
     public EntreeIngredientInventaire getEntreeCourante() {
         return this.entrees.get(this.entreeCourante);
+    }
+
+    public void ajouterEntree(EntreeIngredientInventaire nouvelleEntree) {
+        // Applying flyweight, checking if ingredient already exists.
+        // If ingredient already exists, we only update the quantity.
+        // Otherwise, the whole entry is added in the list.
+        Ingredient nouvelIngredient = nouvelleEntree.getIngredient();
+
+        for (EntreeIngredientInventaire entree : this.entrees) {
+            Ingredient ingredient = entree.getIngredient();
+
+            // Check if same ingredient
+            if (Objects.equals(ingredient.getNom(), nouvelIngredient.getNom())
+                &&  ingredient.getType() == nouvelIngredient.getType()
+                &&  ingredient.getUnite().getType() == nouvelIngredient.getUnite().getType()
+            ) {
+                // Update quantity of existing item
+                entree.setQuantite(nouvelleEntree.getQuantite());
+                return;
+            }
+        }
+
+        // Ingredient doesn't already exist, adding new entry
+        this.entrees.add(nouvelleEntree);
     }
 }
