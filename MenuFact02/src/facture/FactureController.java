@@ -82,10 +82,7 @@ public class FactureController {
      */
     public void ouvrir() throws menufact.facture.exceptions.FactureException
     {
-        if (model.getEtat() == FactureEtat.PAYEE)
-            throw new menufact.facture.exceptions.FactureException("La facture ne peut pas être reouverte.");
-        else
-            model.setEtat(FactureEtat.OUVERTE);
+        model.getEtat().ouvrir();
     }
 
     /**
@@ -93,14 +90,14 @@ public class FactureController {
      */
     public void payer()
     {
-        model.setEtat(FactureEtat.PAYEE);
+        model.getEtat().payer();
     }
     /**
      * Permet de chager l'état de la facture à FERMEE
      */
     public void fermer()
     {
-        model.setEtat(FactureEtat.FERMEE);
+        model.getEtat().fermer();
     }
 
     /**
@@ -110,7 +107,7 @@ public class FactureController {
      */
     public void ajoutePlat(PlatChoisi p) throws menufact.facture.exceptions.FactureException
     {
-        if (model.getEtat() == FactureEtat.OUVERTE){
+        if (model.getEtat().ajouterPlat()){
             notify(p);
             model.ajouterPlat(p);
         }
@@ -153,13 +150,7 @@ public class FactureController {
     public String getEtat(){
         String s;
 
-        if(model.getEtat() == FactureEtat.OUVERTE)
-            s = "facture ouverte";
-        else if (model.getEtat() == FactureEtat.PAYEE) {
-            s = "facture payee";
-        }else {
-            s = "facture fermee";
-        }
+        s = model.getEtat().print();
 
         return view.viewEtat(s);
     }

@@ -15,7 +15,7 @@ import java.util.Date;
 public class Facture {
     private Date date;
     private String description;
-    private FactureEtat etat;
+    private State state;
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
     private int courant;
     private Client client;
@@ -31,7 +31,7 @@ public class Facture {
      */
     public Facture(String description) {
         date = getDate();
-        etat = FactureEtat.OUVERTE;
+        state = new EtatOuvert(this);
         courant = -1;
         this.description = description;
     }
@@ -66,18 +66,18 @@ public class Facture {
      *
      * @return l'état de la facture
      */
-    public FactureEtat getEtat()
+    public State getEtat()
     {
-        return etat;
+        return state;
     }
 
     /**
      *
      * @return l'état de la facture
      */
-    public void setEtat(FactureEtat nEtat)
+    public void setEtat(State state)
     {
-        etat = nEtat;
+        this.state = state;
     }
 
     public Date getDate()
@@ -123,7 +123,7 @@ public class Facture {
         return "menufact.facture.Facture{" +
                 "date=" + date +
                 ", description='" + description + '\'' +
-                ", etat=" + etat +
+                ", etat=" + getEtat().toString() +
                 ", platchoisi=" + platchoisi +
                 ", courant=" + courant +
                 ", client=" + client +
