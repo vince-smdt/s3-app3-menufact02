@@ -1,9 +1,12 @@
+import Client.Client;
+import facture.FactureController;
 import menufact.facture.exceptions.FactureException;
 import menufact.exceptions.MenuException;
-import menufact.facture.Facture;
+import facture.Facture;
 import menufact.plats.PlatAuMenu;
 import plats.PlatChoisi;
 import menufact.plats.PlatSante;
+import Menu.Menu;
 
 public class TestMenuFact02 {
 
@@ -29,7 +32,7 @@ public class TestMenuFact02 {
         Menu m1 = new Menu("menufact.Menu 1");
         Menu m2 = new Menu("menufact.Menu 2");
 
-        Facture f1 = new Facture("Ma facture");
+        FactureController f1 = new FactureController("Ma facture");
 
         Client c1 = new Client(1,"Mr Client","1234567890");
 
@@ -232,7 +235,7 @@ public class TestMenuFact02 {
         }
     }
 
-    private void test7_CreerFacture(Facture f1, Menu m1) throws FactureException
+    private void test7_CreerFacture(FactureController f1, Menu m1) throws FactureException
     {
         System.out.println("===test7_CreerFacture");
 
@@ -249,12 +252,12 @@ public class TestMenuFact02 {
     }
 
 
-    private void test8_AjouterClientFacture(Facture f1,Client c1) {
+    private void test8_AjouterClientFacture(FactureController f1,Client c1) {
         System.out.println("===test8_AjouterClientFacture");
         f1.associerClient(c1);
         System.out.println(f1);
     }
-    private void test8_AjouterPlatsFacture(Facture f1, Menu m1, int pos) throws MenuException,FactureException
+    private void test8_AjouterPlatsFacture(FactureController f1, Menu m1, int pos) throws MenuException,FactureException
     {
         System.out.println("===test8_AjouterPlatsFacture");
 
@@ -279,7 +282,7 @@ public class TestMenuFact02 {
         System.out.println(f1);
     }
 
-    private void test9_PayerFacture(Facture f1)
+    private void test9_PayerFacture(FactureController f1)
     {
         System.out.println("===test9_PayerFacture");
 

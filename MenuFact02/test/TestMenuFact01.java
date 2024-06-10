@@ -1,8 +1,8 @@
-package menufact;
-
-import menufact.facture.Facture;
+import Menu.Menu;
+import facture.Facture;
+import facture.FactureController;
 import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
+import plats.PlatChoisi;
 import menufact.plats.PlatSante;
 
 public class TestMenuFact01 {
@@ -46,40 +46,40 @@ public class TestMenuFact01 {
             System.out.println(pch1);
 
             System.out.println("== New menufact.facture.Facture");
-            Facture facture = new Facture("Ma facture");
-            System.out.println(facture);
+            FactureController factureController = new FactureController("Ma facture");
+            System.out.println(factureController);
 
             System.out.println("== Ajout d'un plat choisie à la facture");
-            facture.ajoutePlat(pch1);
-            System.out.println(facture);
-            System.out.println(facture.sousTotal());
+            factureController.ajoutePlat(pch1);
+            System.out.println(factureController);
+            System.out.println(factureController.sousTotal());
 
             System.out.println("== Ajout d'un plat choisie à la facture");
             PlatChoisi pch2 = new PlatChoisi(p2, 10);
-            facture.ajoutePlat(pch2);
-            System.out.println(facture);
-            System.out.println(facture.sousTotal());
+            factureController.ajoutePlat(pch2);
+            System.out.println(factureController);
+            System.out.println(factureController.sousTotal());
 
-            System.out.println(facture.total());
-            facture.ouvrir();
-            System.out.println(facture);
-            System.out.println("Etat = " + facture.getEtat());
+            System.out.println(factureController.total());
+            factureController.ouvrir();
+            System.out.println(factureController);
+            System.out.println("Etat = " + factureController.getEtat());
 
-            facture.fermer();
-            System.out.println(facture);
-            System.out.println("Etat = " + facture.getEtat());
+            factureController.fermer();
+            System.out.println(factureController);
+            System.out.println("Etat = " + factureController.getEtat());
 
-            facture.ouvrir();
-            System.out.println(facture);
-            System.out.println("Etat = " + facture.getEtat());
+            factureController.ouvrir();
+            System.out.println(factureController);
+            System.out.println("Etat = " + factureController.getEtat());
 
-            facture.payer();
-            System.out.println(facture);
-            System.out.println("Etat = " + facture.getEtat());
+            factureController.payer();
+            System.out.println(factureController);
+            System.out.println("Etat = " + factureController.getEtat());
 
-            facture.ouvrir();
-            System.out.println(facture);
-            System.out.println("Etat = " + facture.getEtat());
+            factureController.ouvrir();
+            System.out.println(factureController);
+            System.out.println("Etat = " + factureController.getEtat());
         }catch (Exception fe)
         {
             System.out.println(fe.getMessage());

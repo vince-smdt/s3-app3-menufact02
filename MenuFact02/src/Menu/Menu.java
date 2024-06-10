@@ -1,4 +1,4 @@
-package menufact;
+package Menu;
 
 import menufact.exceptions.MenuException;
 import menufact.plats.PlatAuMenu;
@@ -14,7 +14,7 @@ public class Menu {
         this.description = description;
     }
 
-    void ajoute (PlatAuMenu p)
+    public void ajoute (PlatAuMenu p)
     {
         plat.add(p);
     }

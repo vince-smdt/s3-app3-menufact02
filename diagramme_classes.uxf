@@ -1,44 +1,198 @@
-<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>1008</x><y>384</y><w>126</w><h>114</h></coordinates><panel_attributes>Facture
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <help_text>Space for diagram notes</help_text>
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1890</x>
+      <y>648</y>
+      <w>243</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>FactureController
 --
--date: Date
--description: String
--platsChoisis: ArrayList&lt;PlatChoisi&gt;
--etat: EtatFacture
--client: Cli
+model: Facture
+view: FactureView
+listeners: ArrayList&lt;Chef&gt;
 --
-+Facture(description: String)
++FactureController(description: String)
++subcribe(listener: Chef): void
++unsubcribe(listener: Chef): void
++notifiy(plat: PlatChoisi): void
++associerClient(client: Client): void
++sousTotal(): double
++total(): double
++tps(): double
++tvq(): double
 +ouvrir(): void
 +fermer(): void
 +payer(): void
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1008</x><y>540</y><w>126</w><h>66</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
-EtatFacture
++ajouterPlat(p: PlatChoisi): void
++genererFacture(): String
++getEtat(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1602</x>
+      <y>414</y>
+      <w>189</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+State
 --
++facture Facture
 --
++State(f: Facture) 
 +ouvrir(): void
 +fermer(): void
 +payer(): void
-+toString(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>870</x><y>642</y><w>126</w><h>60</h></coordinates><panel_attributes>EtatFactureOuverte
++ajouterPlat(): Boolean
++print(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1449</x>
+      <y>252</y>
+      <w>189</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>EtatOuverte
 --
 --
++EtatOuvert(f: Facture) 
 +ouvrir(): void
 +fermer(): void
 +payer(): void
-+toString(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1008</x><y>642</y><w>126</w><h>60</h></coordinates><panel_attributes>EtatFactureFermee
++ajouterPlat(): Boolean
++print(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1647</x>
+      <y>252</y>
+      <w>189</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>EtatFermee
 --
 --
++EtatFermer(f: Facture) 
 +ouvrir(): void
 +fermer(): void
 +payer(): void
-+toString(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1146</x><y>642</y><w>126</w><h>60</h></coordinates><panel_attributes>EtatFacturePayee
++ajouterPlat(): Boolean
++print(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1845</x>
+      <y>252</y>
+      <w>189</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>EtatPayee
 --
 --
++State(f: Facture) 
 +ouvrir(): void
 +fermer(): void
 +payer(): void
-+toString(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1068</x><y>600</y><w>156</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;240;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1068</x><y>600</y><w>18</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>930</x><y>600</y><w>156</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>240;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1068</x><y>492</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLNote</id><coordinates><x>1170</x><y>558</y><w>84</w><h>42</h></coordinates><panel_attributes>State (Etat facture)
-bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1032</x><y>282</y><w>126</w><h>54</h></coordinates><panel_attributes>Commandes.Chef
++ajouterPlat(): Boolean
++print(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1782</x>
+      <y>360</y>
+      <w>135</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;130.0;100.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1710</x>
+      <y>360</y>
+      <w>27</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1503</x>
+      <y>360</y>
+      <w>117</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1602</x>
+      <y>954</y>
+      <w>27</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1791</x>
+      <y>954</y>
+      <w>234</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>MVC (Model, Vue, Controlleur Facture)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2025</x>
+      <y>504</y>
+      <w>225</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Chef
 --
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1212</x><y>300</y><w>150</w><h>126</h></coordinates><panel_attributes>Client
+-commandes: ArrayList&lt;PlatChoisi&gt;
+--
++Chef()
++update(plat: PlatChoisi): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1755</x>
+      <y>1107</y>
+      <w>225</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>Client
 --
 -idClient: int
 -nom: String
@@ -51,82 +205,976 @@ bg=blue</panel_attributes><additional_attributes></additional_attributes></eleme
 +setNom(nom: String): void
 +getNumeroCarteCredit(): String
 +setNumeroCarteCredit(num: String): void
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1128</x><y>360</y><w>96</w><h>114</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;170;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1260</x><y>480</y><w>126</w><h>30</h></coordinates><panel_attributes>TestMenuFact
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1728</x>
+      <y>954</y>
+      <w>81</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2160</x>
+      <y>657</y>
+      <w>189</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>TestMenuFact
 --
 --
--methodesTests</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1128</x><y>462</y><w>144</w><h>48</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>10;10;220;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>408</x><y>156</y><w>252</w><h>72</h></coordinates><panel_attributes>&lt;&lt;Abstract&gt;&gt;
+-methodesTests</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2124</x>
+      <y>675</y>
+      <w>54</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>441</y>
+      <w>378</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Abstract&gt;&gt;
 Ingredient
 --
 -nom: String
 -type: TypeIngredient
 -unite: UniteIngredient
 --
-+Ingredient(nom: String, type: TypeIngredient, unite: UniteIngredient)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>276</x><y>96</y><w>174</w><h>36</h></coordinates><panel_attributes>Fruit
++Ingredient(nom: String, type: TypeIngredient, unite: UniteIngredient)
++getNom(): String
++getType(): TypeIngredient
++getUnite(): UniteIngredient</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>414</x>
+      <y>351</y>
+      <w>261</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Fruit
 --
 --
-+Ingredient(nom: String, unite: UniteIngredient)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>444</x><y>108</y><w>66</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>90;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>228</x><y>156</y><w>132</w><h>42</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
++Ingredient(nom: String, unite: UniteIngredient)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>666</x>
+      <y>369</y>
+      <w>99</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>342</x>
+      <y>531</y>
+      <w>198</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
 UniteIngredient
 --
 --
-toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>354</x><y>174</y><w>66</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>174</x><y>234</y><w>102</w><h>36</h></coordinates><panel_attributes>UniteIngredientLiquide
+toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>558</y>
+      <w>99</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>261</x>
+      <y>648</y>
+      <w>153</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>UniteIngredientLiquide
 --
 --
-toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>234</y><w>96</w><h>36</h></coordinates><panel_attributes>UniteIngredientSolide
+toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>432</x>
+      <y>648</y>
+      <w>144</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>UniteIngredientSolide
 --
 --
-toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>222</x><y>192</y><w>84</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>120;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>192</y><w>60</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;80;70</additional_attributes></element><element><id>UMLNote</id><coordinates><x>78</x><y>306</y><w>132</w><h>36</h></coordinates><panel_attributes>Bridge (Unite et type d'ingrédient)
-bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>78</x><y>360</y><w>102</w><h>30</h></coordinates><panel_attributes>State (Unite ingrédient)
-bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>312</x><y>48</y><w>174</w><h>36</h></coordinates><panel_attributes>Legume
+toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>333</x>
+      <y>585</y>
+      <w>126</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>585</y>
+      <w>90</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>315</x>
+      <y>729</y>
+      <w>198</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Bridge (Unite et type d'ingrédient)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>468</x>
+      <y>279</y>
+      <w>261</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Legume
 --
 --
-+Ingredient(nom: String, unite: UniteIngredient)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>444</x><y>0</y><w>174</w><h>36</h></coordinates><panel_attributes>Viande
++Ingredient(nom: String, unite: UniteIngredient)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>666</x>
+      <y>207</y>
+      <w>261</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Viande
 --
 --
-+Ingredient(nom: String, unite: UniteIngredient)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>576</x><y>48</y><w>174</w><h>36</h></coordinates><panel_attributes>Laitier
++Ingredient(nom: String, unite: UniteIngredient)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>864</x>
+      <y>279</y>
+      <w>261</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Laitier
 --
 --
-+Ingredient(nom: String, unite: UniteIngredient)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>612</x><y>96</y><w>174</w><h>36</h></coordinates><panel_attributes>Epice
++Ingredient(nom: String, unite: UniteIngredient)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>918</x>
+      <y>351</y>
+      <w>261</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Epice
 --
 --
-+Ingredient(nom: String, unite: UniteIngredient)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>60</y><w>48</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>60;160;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>528</x><y>30</y><w>18</w><h>138</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;210;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>546</x><y>60</y><w>42</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;160;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>564</x><y>108</y><w>60</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;80;80;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>696</x><y>156</y><w>210</w><h>72</h></coordinates><panel_attributes>EntreeIngredientInventaire
++Ingredient(nom: String, unite: UniteIngredient)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>297</y>
+      <w>72</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>252</y>
+      <w>27</w>
+      <h>207</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>819</x>
+      <y>297</y>
+      <w>63</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>846</x>
+      <y>369</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1044</x>
+      <y>441</y>
+      <w>315</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>EntreeIngredientInventaire
 --
 -ingredient: Ingredient
 -montant: int
 --
 +IngredientInventaire(ingredient: Ingredient, montant: int)
 +utiliser(montant: int): void
-+ajouter(montant: int): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>654</x><y>186</y><w>54</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>696</x><y>264</y><w>210</w><h>72</h></coordinates><panel_attributes>IngredientInventaire
++ajouter(montant: int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>981</x>
+      <y>486</y>
+      <w>81</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1044</x>
+      <y>594</y>
+      <w>315</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>IngredientInventaire
 --
+-static inventaire: IngredientInventaire
 -entrees: ArrayList&lt;EntreeIngredientInventaire&gt;
+-entreeCourante: int
 --
-+IngredientInventaire()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>222</y><w>18</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>822</x><y>96</y><w>168</w><h>36</h></coordinates><panel_attributes>Flyweight (Ne pas recréer le même ingrédient)
-bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>396</x><y>300</y><w>276</w><h>114</h></coordinates><panel_attributes>PlatAuMenu
+-IngredientInventaire()
++static getInstance(): IngredientInventaire
++entreeSuivante(): void
++entreePrecedente(): void
++getEntreeCourante(): EntreeIngredientInventaire</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1188</x>
+      <y>540</y>
+      <w>27</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1206</x>
+      <y>369</y>
+      <w>162</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>Flyweight (Ne pas recréer le
+même ingrédient)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>810</y>
+      <w>414</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>PlatAuMenu
 --
 -code: int
 -description: String
 -prix: double
+-ingredientCourant: int
 -ingredients: ArrayList&lt;Ingredient&gt;
 --
 +PlatAuMenu(code: int, desc: String, prix: double)
-+ajouterIngredient(nom: String, type: TypeIngredient, unite: UniteIngredient)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>528</x><y>222</y><w>18</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>654</x><y>462</y><w>120</w><h>114</h></coordinates><panel_attributes>PlatChoisi
++ajouterIngredient(nom: String, type: TypeIngredient, unite: UniteIngredient)
++getIngredientCourant(): Ingredient
++ingredientSuivant(): void
++ingredientPrecedant(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>747</y>
+      <w>27</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1098</x>
+      <y>891</y>
+      <w>234</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>PlatChoisi
 --
-plat: PlatAuMenu
-quantite: int
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>408</y><w>96</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;140;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>414</y><w>312</w><h>60</h></coordinates><panel_attributes>PlatSante
+-plat: PlatAuMenu
+-quantite: int
+--
++PlatChoisi(plat: PlatAuMenu, quantite: int)
++getQuantite(): int
++setQuantite(): void
++getPlat(): PlatAuMenu
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>999</x>
+      <y>909</y>
+      <w>117</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>945</y>
+      <w>468</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>PlatSante
 --
 -kcal: double
 -chol: double
 -gras: double
 --
-+PlatSante(code: int, desc: String, prix: double, kcal: double, chol: double, gras: double)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>198</x><y>498</y><w>246</w><h>60</h></coordinates><panel_attributes>PlatEnfant
++PlatSante(code: int, desc: String, prix: double, kcal: double, chol: double, gras: double)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>297</x>
+      <y>1071</y>
+      <w>369</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>PlatEnfant
 --
 -proportion: double
 --
 +PlatEnfant(code: int, desc: String, prix: double, proportion: double)
 +getProportion(): double
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>306</x><y>348</y><w>102</w><h>108</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;10;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>378</x><y>408</y><w>54</w><h>102</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>186</x><y>624</y><w>366</w><h>108</h></coordinates><panel_attributes>PlatAuMenuFactory
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>882</y>
+      <w>153</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>972</y>
+      <w>81</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>279</x>
+      <y>1260</y>
+      <w>549</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>PlatAuMenuFactory
 --
 --
 createPlatAuMenu(code: int, desc: String, prix: double): PlatAuMenu
 createPlatSante(code: int, desc: String, prix: double, kcal: double, chol: double, gras: double): PlatAuMenu
-createPlatEnfant(code: int, desc: String, prix: double, proportion: double): PlatAuMenu</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>498</x><y>408</y><w>48</w><h>228</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>60;10;10;360</additional_attributes></element><element><id>Relation</id><coordinates><x>318</x><y>552</y><w>60</w><h>84</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>10;10;80;120</additional_attributes></element><element><id>Relation</id><coordinates><x>24</x><y>468</y><w>216</w><h>168</h></coordinates><panel_attributes>lt=&lt;..</panel_attributes><additional_attributes>10;10;340;260</additional_attributes></element></diagram>
+createPlatEnfant(code: int, desc: String, prix: double, proportion: double): PlatAuMenu</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>747</x>
+      <y>972</y>
+      <w>27</w>
+      <h>306</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>477</x>
+      <y>1152</y>
+      <w>90</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>36</x>
+      <y>1026</y>
+      <w>324</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;10.0;340.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1323</x>
+      <y>738</y>
+      <w>162</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;240.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1062</x>
+      <y>1098</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Menu
+--
+-description: String
+-courant: int
+-plats: ArrayList&lt;PlatAuMenu&gt;
+--
++Menu(desc: String)
++ajoute(plat: PlatAuMenu): void
++platCourant(): PlatAuMenu
++platSuivant(): void
++platPrecedent(): void
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>954</x>
+      <y>972</y>
+      <w>135</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1242</x>
+      <y>954</y>
+      <w>387</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;230.0;400.0;240.0;410.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>567</x>
+      <y>1197</y>
+      <w>153</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Factory (Création de plats)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1377</x>
+      <y>1017</y>
+      <w>189</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+EtatPlat
+--
+COMMANDE
+EN_PREPARATION
+TERMINE
+SERVI
+IMPOSSIBLE_DE_SERVIR</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1035</x>
+      <y>747</y>
+      <w>135</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Singleton
+(InventaireIngredient)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2061</x>
+      <y>576</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1323</x>
+      <y>1035</y>
+      <w>72</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>60.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1953</x>
+      <y>468</y>
+      <w>369</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>Observer (FactureController est le publisher, chef le subscriber)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>648</y>
+      <w>378</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>IngredientPlat
+--
+-ingredient: Ingredient
+-quantite: int
+--
++IngredientPlat(ingredient: Ingredient, quantite: int)
++getIngredient(): Ingredient
++getQuantite(): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>576</y>
+      <w>27</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>927</x>
+      <y>1296</y>
+      <w>288</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Iterator (on navigue les éléments d'une structure
+sans en exposer les détails internes)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2115</x>
+      <y>1071</y>
+      <w>189</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>FactureException
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2025</x>
+      <y>927</y>
+      <w>108</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+&lt;&lt;throw&gt;&gt;</panel_attributes>
+    <additional_attributes>100.0;180.0;20.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2187</x>
+      <y>1431</y>
+      <w>189</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>java.lang.Exception
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2205</x>
+      <y>1098</y>
+      <w>99</w>
+      <h>351</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;370.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1314</x>
+      <y>1368</y>
+      <w>189</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>MenuException
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1224</x>
+      <y>1260</y>
+      <w>135</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+&lt;&lt;throw&gt;&gt;</panel_attributes>
+    <additional_attributes>130.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1494</x>
+      <y>1377</y>
+      <w>711</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>770.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>810</x>
+      <y>1116</y>
+      <w>189</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>PlatAuMenuException
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>837</x>
+      <y>972</y>
+      <w>99</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+&lt;&lt;throw&gt;&gt;</panel_attributes>
+    <additional_attributes>80.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>864</x>
+      <y>1143</y>
+      <w>1341</w>
+      <h>333</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>1470.0;350.0;10.0;340.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1179</x>
+      <y>810</y>
+      <w>189</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>IngredientInventaireException
+--
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1197</x>
+      <y>729</y>
+      <w>99</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..
+&lt;&lt;throw&gt;&gt;</panel_attributes>
+    <additional_attributes>80.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1305</x>
+      <y>135</y>
+      <w>1116</w>
+      <h>1314</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>1140.0;1440.0;1220.0;160.0;160.0;10.0;120.0;660.0;10.0;750.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>2097</x>
+      <y>972</y>
+      <w>234</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>FactureView
+--
+--
++ viewEtat(etat: String): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1467</x>
+      <y>603</y>
+      <w>270</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>Facture
+--
+-date: Date
+-description: String
+-platsChoisis: ArrayList&lt;PlatChoisi&gt;
+-platCourant: int
+-etat: EtatFacture
+-client: Client
+-TPS: double
+-TVQ: double
+--
++Facture(description: String)
++getDate(): Date
++getDescription(): String
++platChoisiSuivant(): void
++platChoisiPrecedant(): void
++getPlatChoisiCourant(): PlatChoisi
++getPlatschoisi(): ArrayList&lt;platChoisi&gt;
++ajouterPlat(PlatChoisi p): void
++getEtatFacture(): EtatFacture
++setEtatFacture(etat: EtatFacture): void
++getClient(): Client
++setClient(client: Client): void
++getTPS(): double
++getTVQ(): double
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1728</x>
+      <y>693</y>
+      <w>180</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2070</x>
+      <y>927</y>
+      <w>81</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1476</x>
+      <y>180</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>State (Etat facture)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>207</x>
+      <y>387</y>
+      <w>189</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+TypeIngredient
+--
+FRUIT
+LEGUME
+VIANDE
+LAITIER
+EPICE</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>387</x>
+      <y>432</y>
+      <w>234</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>240.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1674</x>
+      <y>549</y>
+      <w>27</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
