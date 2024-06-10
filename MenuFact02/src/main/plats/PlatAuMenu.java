@@ -19,9 +19,6 @@ public class PlatAuMenu {
         this.ingredients = new ArrayList<IngredientPlat>();
     }
 
-    public PlatAuMenu() {
-    }
-
     @Override
     public String toString() {
         return "menufact.plats.PlatAuMenu{" +
@@ -35,24 +32,12 @@ public class PlatAuMenu {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public double getPrix() {
         return prix;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
     }
 
     public void ingredientSuivant() throws PlatAuMenuException {
@@ -71,5 +56,9 @@ public class PlatAuMenu {
 
     public IngredientPlat getIngredientCourant() {
         return this.ingredients.get(this.ingredientCourant);
+    }
+
+    public void ajouterIngredient(IngredientPlat ingredient) {
+        this.ingredients.add(ingredient);
     }
 }

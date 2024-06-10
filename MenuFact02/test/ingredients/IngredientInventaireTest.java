@@ -84,9 +84,13 @@ class IngredientInventaireTest {
         IngredientInventaire.getInstance().ajouterEntree(entree2);
 
         EntreeIngredientInventaire entreeCourante1 = IngredientInventaire.getInstance().getEntreeCourante();
+        assertEquals(entree1, entreeCourante1);
         assertDoesNotThrow(() -> { IngredientInventaire.getInstance().entreeSuivante(); });
         EntreeIngredientInventaire entreeCourante2 = IngredientInventaire.getInstance().getEntreeCourante();
+        assertEquals(entree2, entreeCourante2);
         assertDoesNotThrow(() -> { IngredientInventaire.getInstance().entreePrecedente(); });
+        EntreeIngredientInventaire entreeCourante3 = IngredientInventaire.getInstance().getEntreeCourante();
+        assertEquals(entree1, entreeCourante3);
     }
 
     @Test
