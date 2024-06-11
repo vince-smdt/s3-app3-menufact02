@@ -1,5 +1,8 @@
 package main.plats;
 
+/**
+ * <p>Usine permettant la creation de plats au menu</p>
+ */
 public class PlatAuMenuFactory {
     public PlatAuMenu createPlatAuMenu(int code, String description, double prix) {
         return new PlatAuMenu(code, description, prix);
